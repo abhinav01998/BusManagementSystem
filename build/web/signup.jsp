@@ -20,7 +20,7 @@
         <div class="div1">
             <h2 class="titl">Sign Up Page</h2>
             <hr>
-            <form action="SignnServlet" method="post" onsubmit="return pass()">
+            <form name ="signupform" action="SignnServlet" method="post" onsubmit="return myValidation()">
             <h3 id="ma">Email: </h3>
             <input type="email" placeholder="enter email here" name="email" id="ma">
             <h3 id="ma">Username: </h3>
@@ -35,6 +35,48 @@
             <input type="text" placeholder="enter city name here" name="city" id="ma">
             <br><button type="submit" id="subm">Sign Up</button>
             </form>
+            <script type="text/javascript">
+      function myValidation(){
+        var value = document.forms["signupform"]["email"].value;
+        var flag = true;
+        if(value === ""){
+          alert("Field 'Email' cannot be empty!");
+          flag = false;
+        }
+        var value1 = document.forms["signupform"]["name"].value;
+        if(value1 === ""){
+          alert("Field 'Name' cannot be empty!");
+          flag = false;
+        }
+        var value1 = document.forms["signupform"]["passwd"].value;
+        if(value1 === ""){
+          alert("Field 'Password' cannot be empty!");
+          flag = false;
+        }
+        var value1 = document.forms["signupform"]["repasswd"].value;
+        if(value1 === ""){
+          alert("Please ReEnter the password to confirm!");
+          flag = false;
+        }
+        var value1 = document.forms["signupform"]["city"].value;
+        if(value1 === ""){
+          alert("Field 'City' cannot be empty!");
+          flag = false;
+        }
+        var value2 = document.forms["signupform"]["phone"].value;
+        if(value2 === "" || isNaN(value2) || (value2 < 1 || value2>9999999999)){//Is Not a Number
+          alert("Invalid Value for Contact!");
+          flag = false;
+        }
+        var passvalue1 = document.forms["signupform"]["passwd"].value;
+        var passvalue2 = document.forms["signupform"]["repasswd"].value;
+        if(passvalue1 !== passvalue2){
+            alert("Passwords Don't Match!");
+            return false;
+        }
+        return flag;
+      }
+    </script>
         </div>
         </div>
     </body>
