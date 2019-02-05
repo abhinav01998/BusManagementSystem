@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 28, 2019, 6:39:14 PM
+    Author     : Abhinav Thakur
+*/
+
+ .div1{
+           width:100%;
+	   margin:auto;
+	   max-width:525px;
+	   min-height:550px;
+	   position:relative;
+	   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+           border-radius: 10px;
+           background-color: lightgrey;
+           opacity: 0;
+           animation-name: signupp;
+           animation-duration: 1s;
+           animation-fill-mode: forwards;
+        }
+        @keyframes signupp{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 0.85;
+                transform: RotateY(360deg);
+            }
+        }
+        
+        h2{
+            font-size: 170%;
+            font-family: Open Sans;
+        }
+        #ma{
+            border-radius: 15px;
+            padding-left: 10px;
+            padding-right: 50%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+            font-family: Open Sans;
+        }
+        #subm{
+            border-radius: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 40%;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        #subm:hover{
+            box-shadow: 5px 10px 10px black;
+        transform: translate(0px, -5px);
+        }
+        .div2{
+          background-image: url("holly_hills_house.jpg");
+          height: 100vh;
+          background-size: cover;
+          background-position: center;
+          overflow: scroll;
+        }
+        body{
+          margin: 0;
+        }
+        .titl{
+          margin-left: 31%;
+          padding-top: 20px;
+        }
