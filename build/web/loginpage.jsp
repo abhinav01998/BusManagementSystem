@@ -62,7 +62,7 @@
             box-shadow: 0px 0px 15px black;
         }
         .div2{
-          background-image: url("holly_hills_house.jpg");
+          background-image: url("busbackground.jpg");
           height: 100vh;
           background-size: cover;
           background-position: center;
@@ -88,14 +88,13 @@
             <h3 id="ma">Password: </h3>
             <input type="password" placeholder="enter password here" name="passwd" id="ma"><br>
             <h3 id="ma">Account Type: </h3>
-            <select id = "ma">
-                <option value = "Admin" id = "ma">Admin</option>
-                <option value = "Student" id = "ma">Student</option>
-                <option value = "Faculty" id = "ma">Faculty</option>
+            <select id = "ma" name = "acctype">
+                <option value = "admin" id = "ma">Admin</option>
+                <option value = "student" id = "ma">Student</option>
+                <option value = "faculty" id = "ma">Faculty</option>
             </select><br>
             <br><button type="submit" id="subm">Login</button>
             </form>
-            <h3 style="margin-left: 70%;"><a href="signup.jsp">New here? SignUp</a></h3>
         </div>
         </div>
     </body>

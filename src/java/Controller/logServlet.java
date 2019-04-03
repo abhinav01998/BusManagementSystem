@@ -1,10 +1,9 @@
 package Controller;
 
-import Model.User;
-import Model.UserDAO;
+import Model.Login;
+import Model.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,22 +22,29 @@ public class logServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String uname = request.getParameter("name");
             String password = request.getParameter("passwd");
-            User u = new User();
-            u.setUsername(uname);
-            u.setPwd(password);
+            String acctype = request.getParameter("acctype");
             
-            UserDAO access = new UserDAO();
+            Login l1 = new Login(uname,password,acctype);
+            LoginDAO l2 = new LoginDAO();
             
-            if(access.check(u)){
-                HttpSession session =request.getSession();
-                session.setAttribute("uname",uname);
-                RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
-                rd.forward(request,response);
-            }
+            if(l2.search(l1) && "student".equals(l1.getAcctype())){
+               HttpSession session = request.getSession();
+               session.setAttribute("username",uname);
+               response.sendRedirect("StudentHome.jsp");
+           }
+            else if(l2.search(l1) && "faculty".equals(l1.getAcctype())){
+               HttpSession session = request.getSession();
+               session.setAttribute("username",uname);
+               response.sendRedirect("FacultyHome.jsp");
+           }
+            else if(l2.search(l1) && "admin".equals(l1.getAcctype())){
+               HttpSession session = request.getSession();
+               session.setAttribute("username",uname);
+               response.sendRedirect("AdminHome.jsp");
+           }
             else{
-                RequestDispatcher rd = request.getRequestDispatcher("failure.jsp");
-                rd.forward(request,response);
-            }
+               response.sendRedirect("loginpage.jsp");
+           }
         }
         catch(Exception e){
             System.out.println(e);

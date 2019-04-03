@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 13, 2019, 11:13:49 PM
+    Author     : Abhinav Thakur
+*/
+    body{
+    margin: 0;
+    background-image: url('busbackground.jpg');
+    }
+   .hdr{
+      position: relative;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 100%;
+      margin-bottom: 15px;
+      text-align: center;
+      box-sizing: border-box;
+      background-color: lightgrey;
+      box-shadow: -10px 10px 20px grey;
+      opacity: 0.85;
+      display: sticky;
+    }
+    .bdy{
+        
+    }
+    .ftr{
+        
+    }

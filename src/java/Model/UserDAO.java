@@ -19,7 +19,7 @@ public class UserDAO {
             
             Statement stmt = conn.createStatement();
             
-            String qr = "Select * from users where username ='"+u.getUsername()+"'&& password ='"+u.getPwd()+"';";
+            String qr = "Select * from users where username ='"+u.getUsername()+"'&& password ='"+u.getPwd()+"' && acctype ='"+u.getAccType()+"';";
             
             ResultSet rs = stmt.executeQuery(qr);
             

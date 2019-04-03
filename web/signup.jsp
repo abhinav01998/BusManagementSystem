@@ -11,10 +11,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sign up</title>
         <link rel="stylesheet" href="Sup.css"/>
+        <style>
+            .div2{
+            background-image: url("busbackground.jpg");
+            height: 100vh;
+          background-size: cover;
+          background-position: center;
+          overflow: scroll;
+            }
+        </style>
     </head>
-    <script>
-        
-    </script>
     <body>
         <div class="div2">
         <div class="div1">

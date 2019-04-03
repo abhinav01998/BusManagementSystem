@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 24, 2019, 11:33:14 PM
+    Author     : Abhinav Thakur
+*/
+
+ .hdr{
+    position: relative;
+      border: 1px solid black;
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 15px;
+      text-align: center;
+      box-sizing: border-box;
+      background-color: lightgrey;
+      box-shadow: -10px 10px 20px grey;
+}
+.navbar{
+      display: flex;
+      background-color: blue;
+      border-radius: 8px;
+      width: 100%;
+}
+  .navbar a{
+      color: black;
+      text-decoration: none;
+      padding: 12px 14px;
+    }
+    .navbar a:hover{
+      background-color: grey;
+      color: black;
+    }
+    h1{
+      font-size: 300%;
+    }
+    @media(max-width: 800px){
+      .container{
+        flex-direction: column;
+      }
+    }
+    .container{
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: lightgrey;
+      margin-top: 10px;
+    }
+    .horiz{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+        margin: auto;
+        background-color: lightblue;
+    }
+    .horiz a{
+      color: black;
+      text-decoration: none;
+      padding: 12px 14px;
+    }
+    .horiz a:hover{
+      background-color: grey;
+      color: black;
+    }
