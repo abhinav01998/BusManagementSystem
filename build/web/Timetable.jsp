@@ -77,7 +77,6 @@
         </style>
     <body>
     </body>
-    <form method="post">
         <div class="main">
             
             <div class="navbar">
@@ -114,8 +113,8 @@
 }
 
 %>    
-               
+              </table>
             </div>
         </div>
-    </form>
+    
 </html>

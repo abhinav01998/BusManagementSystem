@@ -132,7 +132,7 @@
 }
 
 %>    
-               
+               </table>
             </div>
         <div class="btns">
             

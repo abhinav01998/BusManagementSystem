@@ -5,13 +5,18 @@
  */
 package Controller;
 
-import Model.usersDAO;
+import Model.updateDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -31,24 +36,48 @@ public class Updatestu extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+          PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
           String email = request.getParameter("email");
           String password = request.getParameter("password");
           String phone = request.getParameter("phone");
           String city = request.getParameter("city");
           
-          usersDAO ud = new usersDAO();
+          updateDAO ud = new updateDAO();
+          String uname = (String)request.getSession().getAttribute("username");
           
-        //  boolean flag = ud.insert(email,password,phone,city);
-//          request.getSession().setAttribute("username", name);
-          response.sendRedirect("Students");
+        Configuration cf = null;
+        SessionFactory sf = null;
+        Session session = null;
+        try
+        {
+            cf = new Configuration();
+        cf.configure("cfg/hibernate.cfg.xml");
+        sf = cf.buildSessionFactory();
+        session = sf.openSession();
+        Transaction tf1 = session.beginTransaction();
+        Query query1 = session.createQuery("delete from users where username = :s1");
+        query1.setParameter("s1", uname);
+        int count1 = query1.executeUpdate();
+        out.println(count1);
+        tf1.commit();
+        Transaction tf2 = session.beginTransaction();
+        Query query2 = session.createQuery("insert into users values(email,uname,password,phone,city,\"student\")");
+        int count2 = query2.executeUpdate();
+        out.println(count2);
+        tf2.commit();
         }
-        catch(Exception e){
-            System.out.println(e);
+        catch(Exception ee)
+                {
+                System.out.println(ee);
+                }
+        finally
+        {
+        session.close();
+        sf.close(); 
         }
+        response.sendRedirect("profile.jsp");
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
